@@ -4,6 +4,11 @@ const morgan = require('morgan');
 const exphbs  = require('express-handlebars');
 
 const route = require('./routes');
+const db = require('./config/db/index');
+
+
+//connect db
+db.connect();
 
 const app = express();
 const port = 3000;
@@ -30,5 +35,5 @@ route(app);
 
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App listening at http://localhost:${port}`);
 })
